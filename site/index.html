@@ -6,7 +6,8 @@
   <meta name="description" content="GridPulse Australia, a reproducible electricity-demand forecasting demonstrator.">
   <meta property="og:title" content="GridPulse Australia">
   <meta property="og:description" content="Market-native demand contracts, transparent baselines and reproducible evaluation.">
-  <link rel="canonical" href="./">
+  <link rel="canonical" href="https://josephnjiru.github.io/Gridpulse-electricity-demand-forecasting/">
+  <meta property="og:url" content="https://josephnjiru.github.io/Gridpulse-electricity-demand-forecasting/">
   <link rel="stylesheet" href="assets/site.css">
   <title>GridPulse Australia | Electricity-demand forecasting</title>
 </head>
@@ -44,13 +45,13 @@
       <div class="section-heading"><div><p class="eyebrow">Explore results</p><h2>Interactive trace, safe by design</h2></div><p class="section-note">Synthetic demonstration only. It illustrates the public interface, not AEMO results.</p></div>
       <div class="explorer card">
         <div class="controls" role="group" aria-label="Synthetic demonstration controls">
-          <label>Market<select id="demo-market"><option>NEM</option><option>WA WEM/SWIS</option></select></label>
-          <label>Region<select id="demo-region"><option>NSW1</option><option>QLD1</option><option>SA1</option><option>TAS1</option><option>VIC1</option></select></label>
-          <label>Model<select id="demo-model"><option>Previous day</option><option>Previous week</option><option>R ARIMA(1,0,0)</option></select></label>
+          <label>Market<select id="demo-market"><option value="NEM">NEM</option><option value="WA">WA WEM/SWIS</option></select></label>
+          <label id="region-label">Region<select id="demo-region"><option>NSW1</option><option>QLD1</option><option>SA1</option><option>TAS1</option><option>VIC1</option></select></label>
+          <label id="demo-model-label">Model<select id="demo-model"><option value="day">Previous day</option><option value="week">Previous week</option><option value="arima">R ARIMA(1,0,0)</option></select></label>
           <label>View<select id="demo-view"><option value="fold">Selected development fold</option><option value="aggregate">Aggregate metrics</option></select></label>
         </div>
         <p id="demo-status" class="status" role="status">Synthetic selected-fold trace, 48 half-hour leads</p>
-        <div class="metric-grid" aria-label="Synthetic example metrics"><div><strong id="metric-mae">42.8</strong><span>MAE, MW</span></div><div><strong id="metric-rmse">61.4</strong><span>RMSE, MW</span></div><div><strong id="metric-coverage">48/48</strong><span>Valid points</span></div></div>
+        <div class="metric-grid" aria-label="Synthetic example metrics"><div><strong id="metric-mae">Unavailable</strong><span>MAE, MW</span></div><div><strong id="metric-rmse">Unavailable</strong><span>RMSE, MW</span></div><div><strong id="metric-coverage">Unavailable</strong><span>Valid points</span></div></div>
         <div class="chart-wrap"><svg id="demo-chart" role="img" aria-labelledby="chart-title chart-desc" viewBox="0 0 900 300"><title id="chart-title">Synthetic actual and forecast demand trace</title><desc id="chart-desc">A synthetic 48-point demonstration comparing actual and forecast demand.</desc></svg></div>
         <p class="chart-footnote">Synthetic values are included to demonstrate interaction and chart accessibility. They are not sourced from AEMO and must not be interpreted as measured performance.</p>
         <details><summary>Data equivalent for screen readers</summary><p id="chart-table-summary">The synthetic trace contains 48 half-hour leads with actual and forecast series. Select aggregate metrics to see the interface change.</p></details>
