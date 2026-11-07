@@ -132,16 +132,27 @@
     var all = data.actual.concat(data.forecast);
     var low = Math.min.apply(Math, all);
     var high = Math.max.apply(Math, all);
+    var padding = Math.max(20, (high - low) * 0.08);
+    low -= padding;
+    high += padding;
     var x = function (index) { return 42 + index * 816 / Math.max(1, data.actual.length - 1); };
     var y = function (value) { return 260 - (value - low) * 210 / Math.max(1, high - low); };
     var line = function (values) { return values.map(function (value, index) { return (index ? "L" : "M") + x(index) + " " + y(value); }).join(" "); };
-    chart.appendChild(svgElement("line", { x1: 42, y1: 260, x2: 858, y2: 260, stroke: "#9fb3b7" }));
-    chart.appendChild(svgElement("text", { x: 42, y: 286, fill: "#5c6b73" }, "Lead 1"));
-    chart.appendChild(svgElement("text", { x: 800, y: 286, fill: "#5c6b73" }, "Lead " + data.actual.length));
-    chart.appendChild(svgElement("path", { d: line(data.actual), fill: "none", stroke: "#1b6d73", "stroke-width": 3 }));
-    chart.appendChild(svgElement("path", { d: line(data.forecast), fill: "none", stroke: "#d46b4c", "stroke-width": 3, "stroke-dasharray": "7 5" }));
-    chart.appendChild(svgElement("text", { x: 42, y: 24, fill: "#1b6d73" }, "Actual, synthetic"));
-    chart.appendChild(svgElement("text", { x: 180, y: 24, fill: "#d46b4c" }, "Forecast, synthetic"));
+    var tickCount = 4;
+    chart.appendChild(svgElement("text", { x: 42, y: 16, fill: "#171717", "font-size": 13 }, "Demand (MW)"));
+    for (var tick = 0; tick <= tickCount; tick += 1) {
+      var tickValue = low + (high - low) * tick / tickCount;
+      var tickY = y(tickValue);
+      chart.appendChild(svgElement("line", { x1: 42, y1: tickY, x2: 858, y2: tickY, stroke: "#cfc4b6", "stroke-dasharray": "3 5" }));
+      chart.appendChild(svgElement("text", { x: 4, y: tickY + 4, fill: "#5f5a54", "font-size": 12 }, Math.round(tickValue)));
+    }
+    chart.appendChild(svgElement("text", { x: 42, y: 286, fill: "#5f5a54", "font-size": 12 }, "Lead 1"));
+    chart.appendChild(svgElement("text", { x: 800, y: 286, fill: "#5f5a54", "font-size": 12 }, "Lead " + data.actual.length));
+    chart.appendChild(svgElement("text", { x: 410, y: 298, fill: "#5f5a54", "font-size": 12 }, data.interval === 5 ? "Five-minute forecast lead" : "Half-hour forecast lead"));
+    chart.appendChild(svgElement("path", { d: line(data.actual), fill: "none", stroke: "#315aa6", "stroke-width": 3 }));
+    chart.appendChild(svgElement("path", { d: line(data.forecast), fill: "none", stroke: "#9e332d", "stroke-width": 3, "stroke-dasharray": "7 5" }));
+    chart.appendChild(svgElement("text", { x: 42, y: 34, fill: "#315aa6", "font-size": 12 }, "Actual, synthetic"));
+    chart.appendChild(svgElement("text", { x: 180, y: 34, fill: "#9e332d", "font-size": 12 }, "Forecast, synthetic"));
   }
 
   function draw() {

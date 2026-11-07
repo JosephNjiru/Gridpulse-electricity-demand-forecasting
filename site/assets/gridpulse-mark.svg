@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-labelledby="title desc">
+  <title id="title">GridPulse interval mark</title>
+  <desc id="desc">A measured interval lattice forming an abstract G and forecast trace.</desc>
+  <rect width="48" height="48" rx="8" fill="#171717"/>
+  <path d="M12 14h22M12 20h15M12 26h21M12 32h15M12 38h22" stroke="#f4eee4" stroke-width="3" stroke-linecap="round"/>
+  <path d="M34 14v7M28 20v7M34 26v7M28 32v6" stroke="#c94d3f" stroke-width="3" stroke-linecap="round"/>
+  <path d="M12 38h10l6-6h6" fill="none" stroke="#315aa6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
