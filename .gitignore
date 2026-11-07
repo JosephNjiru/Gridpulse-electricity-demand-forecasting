@@ -1,0 +1,14 @@
+data/raw/
+data/processed/
+data/mlruns/
+data/delta/
+data/lake/
+*.log
+.venv/
+.r-library/
+.Rproj.user/
+renv/library/
+__pycache__/
+.pytest_cache/
+.env
+*.secrets.*

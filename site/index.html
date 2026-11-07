@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GridPulse Australia, a reproducible electricity-demand forecasting demonstrator.">
+  <meta property="og:title" content="GridPulse Australia">
+  <meta property="og:description" content="Market-native demand contracts, transparent baselines and reproducible evaluation.">
+  <link rel="canonical" href="./">
+  <link rel="stylesheet" href="assets/site.css">
+  <title>GridPulse Australia | Electricity-demand forecasting</title>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell nav-wrap">
+    <a class="brand" href="./" aria-label="GridPulse Australia home"><span class="brand-mark">GP</span><span>GridPulse <em>Australia</em></span></a>
+    <nav aria-label="Primary navigation">
+      <a href="#overview">Overview</a><a href="#explore">Explore</a><a href="#methods">Methods</a><a href="#engineering">Engineering</a><a href="#about">About</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section id="overview" class="hero shell">
+    <div class="hero-copy">
+      <p class="eyebrow">Electricity demand, made inspectable</p>
+      <h1>Forecasting that keeps the market contract in view.</h1>
+      <p class="lede">GridPulse Australia brings source validation, seasonal baselines and transparent evaluation into one small analytical project for electricity-sector analysts, engineers and research collaborators.</p>
+      <div class="actions"><a class="button primary" href="#explore">Explore the demonstration</a><a class="button secondary" href="https://github.com/JosephNjiru/Gridpulse-electricity-demand-forecasting">View the repository</a></div>
+    </div>
+    <div class="hero-card" aria-label="Project scope">
+      <div class="scope-row"><span class="scope-number">5</span><span>National Electricity Market regions</span></div>
+      <div class="scope-row"><span class="scope-number">30 min</span><span>NEM source cadence</span></div>
+      <div class="scope-row"><span class="scope-number">5 min</span><span>WA native source contract</span></div>
+      <p class="small">The public site contains no AEMO observations or target-level forecasts. The interactive trace below is a synthetic interface example.</p>
+    </div>
+  </section>
+  <section class="section shell two-col">
+    <div><p class="eyebrow">The question</p><h2>Can a simple, auditable benchmark expose where demand patterns hold and where they break?</h2></div>
+    <div><p>GridPulse treats operational demand as a market-specific measurement contract rather than a generic time series. It validates schemas, cadence, ordering and provenance before a forecast is scored. The local project then compares previous-day and previous-week seasonal-naive forecasts with a base-R ARIMA comparison.</p><p>This website presents the software design and a safe synthetic interaction. Empirical development results remain local while source-rights review is incomplete.</p></div>
+  </section>
+  <section id="explore" class="section section-tint">
+    <div class="shell">
+      <div class="section-heading"><div><p class="eyebrow">Explore results</p><h2>Interactive trace, safe by design</h2></div><p class="section-note">Synthetic demonstration only. It illustrates the public interface, not AEMO results.</p></div>
+      <div class="explorer card">
+        <div class="controls" role="group" aria-label="Synthetic demonstration controls">
+          <label>Market<select id="demo-market"><option>NEM</option><option>WA WEM/SWIS</option></select></label>
+          <label>Region<select id="demo-region"><option>NSW1</option><option>QLD1</option><option>SA1</option><option>TAS1</option><option>VIC1</option></select></label>
+          <label>Model<select id="demo-model"><option>Previous day</option><option>Previous week</option><option>R ARIMA(1,0,0)</option></select></label>
+          <label>View<select id="demo-view"><option value="fold">Selected development fold</option><option value="aggregate">Aggregate metrics</option></select></label>
+        </div>
+        <p id="demo-status" class="status" role="status">Synthetic selected-fold trace, 48 half-hour leads</p>
+        <div class="metric-grid" aria-label="Synthetic example metrics"><div><strong id="metric-mae">42.8</strong><span>MAE, MW</span></div><div><strong id="metric-rmse">61.4</strong><span>RMSE, MW</span></div><div><strong id="metric-coverage">48/48</strong><span>Valid points</span></div></div>
+        <div class="chart-wrap"><svg id="demo-chart" role="img" aria-labelledby="chart-title chart-desc" viewBox="0 0 900 300"><title id="chart-title">Synthetic actual and forecast demand trace</title><desc id="chart-desc">A synthetic 48-point demonstration comparing actual and forecast demand.</desc></svg></div>
+        <p class="chart-footnote">Synthetic values are included to demonstrate interaction and chart accessibility. They are not sourced from AEMO and must not be interpreted as measured performance.</p>
+        <details><summary>Data equivalent for screen readers</summary><p id="chart-table-summary">The synthetic trace contains 48 half-hour leads with actual and forecast series. Select aggregate metrics to see the interface change.</p></details>
+      </div>
+    </div>
+  </section>
+  <section id="methods" class="section shell">
+    <div class="section-heading"><div><p class="eyebrow">Data and methods</p><h2>Native contracts, explicit boundaries</h2></div></div>
+    <div class="method-grid">
+      <article><span class="step">01</span><h3>Validate</h3><p>NEM archives are checked for schema, safe archive members, five expected regions, duplicate keys, 30-minute cadence, source ordering and negative observations.</p></article>
+      <article><span class="step">02</span><h3>Construct</h3><p>Development folds use 336 half-hour warm-up intervals, 48 forecast intervals and a 336-interval weekly stride. The final 672 intervals per region remain reserved and unscored.</p></article>
+      <article><span class="step">03</span><h3>Compare</h3><p>MAE, RMSE, sMAPE, WAPE, MASE, RMSSE and bias retain their eligibility counts. MAPE uses strictly positive actuals only.</p></article>
+      <article><span class="step">04</span><h3>Interpret</h3><p>The study is a retrospective source-order hindcast. Source timestamps are retained verbatim; public issue-time availability and universal UTC conversion are not claimed.</p></article>
+    </div>
+    <div class="notice"><strong>Source and rights</strong><p>Operational-demand source links: <a href="https://www.aemo.com.au/energy-systems/electricity/national-electricity-market-nem/data-nem/operational-demand-data">AEMO NEM operational demand</a> and <a href="https://www.aemo.com.au/privacy-and-legal-notices/copyright-permissions">AEMO copyright permissions</a>. This portfolio does not redistribute AEMO archives or extracted observations. Check current AEMO terms before using official data.</p></div>
+  </section>
+  <section id="engineering" class="section section-dark"><div class="shell">
+    <p class="eyebrow">Engineering</p><h2>A small path from source to decision</h2>
+    <div class="architecture" role="img" aria-label="Architecture flow from source acquisition through validation and evaluation to local dashboard"><div class="arch-node">Official source<br><small>local acquisition</small></div><span>→</span><div class="arch-node">Contract checks<br><small>schema and cadence</small></div><span>→</span><div class="arch-node">Python baselines<br><small>canonical metrics</small></div><span>→</span><div class="arch-node">R comparison<br><small>shared folds</small></div><span>→</span><div class="arch-node">Local views<br><small>MLflow and dashboard</small></div></div>
+    <div class="engineering-grid"><div><h3>What the local project demonstrates</h3><p>Fixture tests, strict archive validation, a shared Python/R origin manifest, local MLflow tracking, PySpark parity and a dependency-free loopback dashboard.</p></div><div><h3>What remains separate</h3><p>Delta Lake, sparklyr, Docker, Terraform, Databricks and remote deployment are optional extensions, not represented as executed public services.</p></div></div>
+  </div></section>
+  <section id="about" class="section shell two-col"><div><p class="eyebrow">About the project</p><h2>Built for careful technical conversation.</h2></div><div><p>GridPulse is maintained by Joseph Njiru as a portfolio project for practical electricity analytics, data engineering and reproducible research discussion.</p><p>The repository contains the software and fixture tests needed to inspect the implementation. Raw source archives and private research evidence are intentionally kept outside the public tree.</p><p><a href="https://github.com/JosephNjiru/Gridpulse-electricity-demand-forecasting">Discuss the software on GitHub</a>. No open-source licence is granted by this repository unless one is added explicitly.</p></div></section>
+</main>
+<footer class="footer"><div class="shell footer-inner"><span>GridPulse Australia</span><span>Historical development demonstrator · November 2026</span><a href="https://github.com/JosephNjiru/Gridpulse-electricity-demand-forecasting">Repository</a></div></footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

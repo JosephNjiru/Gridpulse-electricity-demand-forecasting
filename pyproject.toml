@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gridpulse"
+version = "0.1.0"
+description = "Bounded validators for GridPulse source evidence"
+requires-python = ">=3.12"
+
+[project.optional-dependencies]
+mlflow = ["mlflow==2.17.2"]
+spark = ["pyspark==4.0.1", "delta-spark==4.0.0"]
