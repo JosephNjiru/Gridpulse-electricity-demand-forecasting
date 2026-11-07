@@ -1,5 +1,7 @@
 # GridPulse Australia
 
+[![Open the GridPulse site](site/assets/gridpulse-preview.svg)](https://josephnjiru.github.io/Gridpulse-electricity-demand-forecasting/)
+
 GridPulse Australia is a compact electricity-demand forecasting demonstrator
 for analysts, data engineers and research collaborators. It asks a practical
 question: how much can transparent seasonal benchmarks reveal about regional

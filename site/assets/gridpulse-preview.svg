@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">GridPulse Australia</title>
+  <desc id="desc">Electricity demand forecasting with transparent market contracts and reproducible evaluation.</desc>
+  <rect width="1200" height="630" fill="#f7fafb"/>
+  <rect width="1200" height="630" fill="url(#wash)" opacity=".8"/>
+  <rect x="70" y="70" width="1060" height="490" rx="26" fill="#112b3c"/>
+  <path d="M92 443 C170 382 216 409 278 326 S388 290 452 365 S559 428 628 330 S733 218 807 290 S919 405 1002 250 S1084 235 1110 188" fill="none" stroke="#9bd0cd" stroke-width="8" stroke-linecap="round"/>
+  <path d="M92 474 C181 433 227 440 291 374 S399 337 459 397 S571 458 637 367 S736 274 812 328 S925 439 1009 297 S1080 282 1110 246" fill="none" stroke="#d46b4c" stroke-width="6" stroke-dasharray="14 12" stroke-linecap="round"/>
+  <circle cx="92" cy="443" r="10" fill="#9bd0cd"/>
+  <circle cx="1110" cy="188" r="10" fill="#9bd0cd"/>
+  <text x="112" y="172" fill="#9bd0cd" font-family="system-ui,Segoe UI,sans-serif" font-size="24" font-weight="700" letter-spacing="4">GRIDPULSE AUSTRALIA</text>
+  <text x="112" y="246" fill="#ffffff" font-family="system-ui,Segoe UI,sans-serif" font-size="58" font-weight="700">Forecasting that keeps</text>
+  <text x="112" y="315" fill="#ffffff" font-family="system-ui,Segoe UI,sans-serif" font-size="58" font-weight="700">the market contract in view.</text>
+  <text x="112" y="522" fill="#c3d3d5" font-family="system-ui,Segoe UI,sans-serif" font-size="22">Transparent baselines · reproducible evaluation · synthetic public demo</text>
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dcebed"/>
+      <stop offset="1" stop-color="#f7fafb"/>
+    </linearGradient>
+  </defs>
+</svg>
