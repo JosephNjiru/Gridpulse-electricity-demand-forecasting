@@ -116,13 +116,17 @@ HTML, CSS, JavaScript and SVG only; it does not run the local Python server.
 
 ## Data access and attribution
 
-The source references are [AEMO operational demand
-data](https://www.aemo.com.au/energy-systems/electricity/national-electricity-market-nem/data-nem/operational-demand-data)
-and [AEMO copyright
-permissions](https://www.aemo.com.au/privacy-and-legal-notices/copyright-permissions).
-Review the current source-specific terms before obtaining, transforming or
-redistributing official records. This repository does not grant permission to
-redistribute AEMO data.
+The source references are listed in APA 7 style below. Review the current
+source-specific terms before obtaining, transforming or redistributing official
+records. This repository does not grant permission to redistribute AEMO data.
+
+Australian Energy Market Operator. (n.d.). *Copyright permissions*. Retrieved
+November 7, 2026, from
+https://www.aemo.com.au/privacy-and-legal-notices/copyright-permissions
+
+Australian Energy Market Operator. (n.d.). *Operational demand data*.
+Retrieved November 7, 2026, from
+https://www.aemo.com.au/energy-systems/electricity/national-electricity-market-nem/data-nem/operational-demand-data
 
 ## Licence and discussion
 
